@@ -4,6 +4,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
+      <div>App 화면</div>
     </>
   );
 }
