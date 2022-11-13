@@ -16,7 +16,7 @@
 |                    최유진                     |                     김형겸                      |                   박현지                    |
 | :-------------------------------------------: | :---------------------------------------------: | :-----------------------------------------: |
 | [@Yujin Choi](https://github.com/choichoijin) | [@Hyeongkyeom Kim](https://github.com/Brokyeom) | [@HyeonJi Park](https://github.com/iamphj3) |
-|      장바구니 뷰<br/>카테고리 뷰 및 api       |          footer<br/>홈 뷰<br/>BEST api          |   Navbar<br/>header<br/>TODAYS'S HOT api    |
+|      장바구니 뷰<br/>카테고리 뷰 및 api       |          footer<br/>홈 뷰<br/>BEST api          |   Navbar<br/>header<br/>TODAY'S HOT api    |
 
 </center>
 
