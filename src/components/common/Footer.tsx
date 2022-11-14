@@ -3,17 +3,6 @@ import styled from 'styled-components';
 
 function Footer() {
   const btnList: string[] = ['로그인', 'PC버전', 'APP설치'];
-  const termsList: string[] = [
-    '회사소개｜이용약관｜개인정보처리방침｜청소년보호정책',
-    '사업자정보확인｜전자금융거래약관｜판매이용약관',
-    '쿠팡페이 서비스 이용약관｜쿠팡페이 개인정보처리방침',
-  ];
-  const companyInfoList: string[] = [
-    '상호명 및 호스팅 서비스 제공 : 쿠팡(주)',
-    '대표이사 : 강한승,박대준',
-    '사업자등록번호:120-88-00767｜통신판매업신고:2017-서울송파-0680',
-    '서울시 송파구 송파대로 570｜고객센터 : 1577-7011(유료)',
-  ];
 
   return (
     <StFooterContainer>
@@ -23,14 +12,17 @@ function Footer() {
         ))}
       </StFooterBtnWrapper>
       <StTermsWrapper>
-        {termsList.map((value: string, idx: number) => (
-          <span key={idx}>{value}</span>
-        ))}
+        <span>회사소개｜이용약관｜개인정보처리방침｜청소년보호정책</span>
+        <span>사업자정보확인｜전자금융거래약관｜판매이용약관</span>
+        <span>쿠팡페이 서비스 이용약관｜쿠팡페이 개인정보처리방침</span>
       </StTermsWrapper>
       <StCompanyInfoWrapper>
-        {companyInfoList.map((value: string, idx: number) => (
-          <span key={idx}>{value}</span>
-        ))}
+        <span>상호명 및 호스팅 서비스 제공 : 쿠팡(주)</span>
+        <span>대표이사 : 강한승,박대준</span>
+        <span>
+          사업자등록번호:120-88-00767｜통신판매업신고:2017-서울송파-0680
+        </span>
+        <span>서울시 송파구 송파대로 570｜고객센터 : 1577-7011(유료)</span>
       </StCompanyInfoWrapper>
       <StPrecautions>
         사이버몰 내 판매되는 상품 중에는 쿠팡에 등록한 개별 판매자가
