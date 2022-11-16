@@ -1,1 +1,1 @@
-export { default as iconBasketMain } from './icon_basket_main.svg';
+export { default as basketMainIcon } from './icon_basket_main.svg';

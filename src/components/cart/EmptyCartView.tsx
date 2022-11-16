@@ -1,4 +1,4 @@
-import { iconBasketMain } from 'assets/images';
+import { basketMainIcon } from 'assets/images';
 import styled from 'styled-components';
 
 function EmptyCartView() {
@@ -9,7 +9,7 @@ function EmptyCartView() {
         <CartTabItem>정기배송(0)</CartTabItem>
       </StCartTab>
       <StEmptyCart>
-        <StIconBasket src={iconBasketMain} />
+        <StBasketMainIcon src={basketMainIcon} />
         <h1>
           장바구니에
           <br />
@@ -88,7 +88,7 @@ const StEmptyCart = styled.section`
   }
 `;
 
-const StIconBasket = styled.img`
+const StBasketMainIcon = styled.img`
   width: 10rem;
   height: 10rem;
   margin-bottom: 0.8rem;
