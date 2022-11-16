@@ -1,7 +1,7 @@
-import React from 'react';
+import Menu from 'components/category/Menu';
 
 function Category() {
-  return <div>카테고리에요!</div>;
+  return <Menu />;
 }
 
 export default Category;
