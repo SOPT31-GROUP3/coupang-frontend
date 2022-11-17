@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { imgHomeBannerFirst } from 'assets/images';
 
 function HomeBanner() {
-  // const homeBannerImgList: string[] = [
-
-  // ];
+  const homeBannerImgList: string[] = [imgHomeBannerFirst];
   return (
     <StHomebannerWrapper>
-      <StHomeBannerImg src={imgHomeBannerFirst} />
+      {homeBannerImgList.map((image: string, idx: number) => (
+        <StHomeBannerImg key={idx} src={image} />
+      ))}
     </StHomebannerWrapper>
   );
 }
