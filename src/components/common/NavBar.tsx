@@ -61,10 +61,6 @@ const StNavItem = styled.button`
   background-color: ${(props) => props.theme.color.white};
   font-size: 1.2rem;
   font-weight: ${(props) => props.theme.fontWeight.medium};
-
-  a {
-    color: ${(props) => props.theme.color.black};
-  }
 `;
 
 const StNavIcon = styled.img`
