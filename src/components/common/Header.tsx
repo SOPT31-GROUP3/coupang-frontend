@@ -1,42 +1,80 @@
-import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { iconBasketBtn, iconCategoryBtn, iconSearchBtn } from 'assets/icons';
 import { imgLogo } from 'assets/images';
 import styled from 'styled-components';
-import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 
 function Header() {
-  // 페이지별 바뀌는 헤더 어떻게 구현할까?????
-  // 1. 현재 route 위치 알아내기
-  // 2. route 위치에 따라서 헤더 내 버튼, 로고 보여주기 (->옵셔널 체이닝??)
-
-  const params = useParams();
   const location = useLocation();
-  const navigate = useNavigate();
-  {
-    location.pathname === '/category';
-  }
 
   return (
-    <>
-      <StHeaderWrapper>
-        <StHeaderBtn>
-          <Link to={'/category'}>
-            <StHeaderIcon src={iconCategoryBtn} />
-          </Link>
-        </StHeaderBtn>
-        <Link to={'/'}>
-          <StImgLogo src={imgLogo} />
-        </Link>
-        <StHeaderBtn>
-          <StHeaderIcon src={iconSearchBtn} />
-        </StHeaderBtn>
-        <StHeaderBtn>
-          <Link to={'/cart'}>
-            <StHeaderIcon src={iconBasketBtn} />
-          </Link>
-        </StHeaderBtn>
-      </StHeaderWrapper>
-    </>
+    <StHeaderWrapper>
+      {location.pathname === '/cart' ? ( // 장바구니 페이지 헤더
+        <>
+          <StLeftSection>
+            <StHeaderBtn>
+              <Link to={'/category'}>
+                <StHeaderIcon src={iconCategoryBtn} />
+              </Link>
+            </StHeaderBtn>
+            <StHeaderTitle>장바구니</StHeaderTitle>
+          </StLeftSection>
+          <StRightSection>
+            <StHeaderBtn>
+              <StHeaderIcon src={iconSearchBtn} />
+            </StHeaderBtn>
+          </StRightSection>
+        </>
+      ) : location.pathname === '/category' ? ( // 카테고리 페이지 헤더
+        <>
+          <StLeftSection>
+            <StHeaderBtn>
+              <Link to={'/category'}>
+                <StHeaderIcon src={iconCategoryBtn} />
+              </Link>
+            </StHeaderBtn>
+            <StHeaderTitle>
+              쇼핑
+              <span> | </span>
+              <span>뷰티</span>
+            </StHeaderTitle>
+          </StLeftSection>
+          <StRightSection>
+            <StHeaderBtn>
+              <StHeaderIcon src={iconSearchBtn} />
+            </StHeaderBtn>
+            <StHeaderBtn>
+              <Link to={'/cart'}>
+                <StHeaderIcon src={iconBasketBtn} />
+              </Link>
+            </StHeaderBtn>
+          </StRightSection>
+        </>
+      ) : (
+        // 홈, 마이쿠팡 페이지 헤더
+        <>
+          <StLeftSection>
+            <StHeaderBtn>
+              <Link to={'/category'}>
+                <StHeaderIcon src={iconCategoryBtn} />
+              </Link>
+            </StHeaderBtn>
+            <Link to={'/'}>
+              <StImgLogo src={imgLogo} />
+            </Link>
+          </StLeftSection>
+          <StRightSection>
+            <StHeaderBtn>
+              <StHeaderIcon src={iconSearchBtn} />
+            </StHeaderBtn>
+            <StHeaderBtn>
+              <Link to={'/cart'}>
+                <StHeaderIcon src={iconBasketBtn} />
+              </Link>
+            </StHeaderBtn>
+          </StRightSection>
+        </>
+      )}
+    </StHeaderWrapper>
   );
 }
 
@@ -55,6 +93,18 @@ const StHeaderWrapper = styled.header`
 
   background-color: ${(props) => props.theme.color.white};
   border-bottom: 0.1rem solid #e4e6e3;
+`;
+
+const StLeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+`;
+
+const StRightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 `;
 
 const StHeaderBtn = styled.button`
@@ -77,5 +127,15 @@ const StHeaderIcon = styled.img`
 
 const StImgLogo = styled.img`
   height: 2rem;
-  padding-right: 12.4rem;
+`;
+
+const StHeaderTitle = styled.h1`
+  color: ${(props) => props.theme.color.gray800};
+  font-size: 2rem;
+  font-weight: ${(props) => props.theme.fontWeight.bold};
+
+  & > span {
+    font-size: 1.4rem;
+    font-weight: ${(props) => props.theme.fontWeight.semibold};
+  }
 `;
