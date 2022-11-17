@@ -1,7 +1,7 @@
-import React from 'react';
+import EmptyCartView from 'components/cart/EmptyCartView';
 
 function Cart() {
-  return <div>장바구니에요!</div>;
+  return <EmptyCartView />;
 }
 
 export default Cart;
