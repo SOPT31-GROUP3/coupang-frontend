@@ -8,42 +8,42 @@ import {
   icSearchBar,
 } from 'assets/icons';
 
-function Nav() {
+function NavBar() {
   return (
     <StNavWrapper>
-      <Link to={'/'}>
-        <StNavItem>
+      <StNavItem>
+        <Link to={'/'}>
           <StNavIcon src={icHomeBar} />
-          쿠팡홈
-        </StNavItem>
-      </Link>
-      <Link to={'/category'}>
-        <StNavItem>
+          <p>쿠팡홈</p>
+        </Link>
+      </StNavItem>
+      <StNavItem>
+        <Link to={'/category'}>
           <StNavIcon src={icCategoryBar} />
-          카테고리
-        </StNavItem>
-      </Link>
+          <p>카테고리</p>
+        </Link>
+      </StNavItem>
       <StNavItem>
         <StNavIcon src={icSearchBar} />
-        검색
+        <p>검색</p>
       </StNavItem>
-      <Link to={'/mypage'}>
-        <StNavItem>
+      <StNavItem>
+        <Link to={'/mypage'}>
           <StNavIcon src={icMycoupangBar} />
-          마이쿠팡
-        </StNavItem>
-      </Link>
+          <p>마이쿠팡</p>
+        </Link>
+      </StNavItem>
     </StNavWrapper>
   );
 }
 
-export default Nav;
+export default NavBar;
 
 const StNavWrapper = styled.nav`
   display: flex;
   align-items: center;
-  position: absolute;
-  bottom: 0rem;
+  position: sticky;
+  bottom: 0;
 
   height: 5.5rem;
 
@@ -54,10 +54,9 @@ const StNavWrapper = styled.nav`
 const StNavItem = styled.button`
   display: flex;
   flex-direction: column;
+  flex: 1;
   align-items: center;
   gap: 0.2rem;
-
-  width: 9.375rem;
 
   background-color: ${(props) => props.theme.color.white};
   font-size: 1.2rem;
