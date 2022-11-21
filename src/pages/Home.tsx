@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import HomeBanner from 'components/home/HomeBanner';
 import HomeServiceMenu from 'components/home/HomeServiceMenu';
+import Carousel from 'components/home/Carousel';
 
 function Home() {
   return (
     <StHomeContainer>
-      <HomeBanner />
+      <Carousel />
       <HomeServiceMenu />
     </StHomeContainer>
   );
