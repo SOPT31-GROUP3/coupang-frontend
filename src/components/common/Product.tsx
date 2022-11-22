@@ -2,10 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { iconStar } from 'assets/icons';
 
+interface ProductProps {
+  productId: number;
+  productName: string;
+  productImage: string;
+  discount: number;
+  originalPrice: number;
+  discountedPrice: number;
+  reviewCount: number;
+}
+
 function Product() {
   return (
     <StProductContainer>
-      <StProductImage />
+      <StProductImage alt='productImage' />
       <StProductInfo>
         <StCoupon>즉시할인 쿠폰</StCoupon>
         <StProductName>
