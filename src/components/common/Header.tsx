@@ -33,7 +33,7 @@ function Header() {
               </Link>
             </StHeaderBtn>
             <StHeaderTitle>
-              쇼핑
+              <span>쇼핑</span>
               <span> | </span>
               <span>뷰티</span>
             </StHeaderTitle>
@@ -134,7 +134,7 @@ const StHeaderTitle = styled.h1`
   font-size: 2rem;
   font-weight: ${(props) => props.theme.fontWeight.bold};
 
-  & > span {
+  & > span:not(:first-child) {
     font-size: 1.4rem;
     font-weight: ${(props) => props.theme.fontWeight.semibold};
   }
