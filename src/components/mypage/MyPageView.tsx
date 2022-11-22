@@ -14,109 +14,67 @@ import {
 } from 'assets/icons';
 
 function MyPageView() {
+  const menuItemList = [
+    { img: iconOrderlist, text: '주문목록' },
+    { img: iconCancellist, text: '취소·반품·교환목록' },
+    { img: iconReview, text: '리뷰 관리' },
+    { img: iconDeliver, text: '정기배송' },
+    { img: iconCredit, text: '결제수단·쿠페이' },
+    { img: iconRocketfresh, text: '로켓프레시 프레시백' },
+    { img: iconGift, text: '쿠팡캐시·기프트카드' },
+    { img: iconCoupon, text: '할인쿠폰' },
+    { img: iconCustomercenter, text: '고객센터' },
+  ];
+
   return (
     <StMyPageContainer>
       <StUserContainer>
-        <StUserInfoWrapper>
+        <StUserInfoContainer>
           <StProfile>
             <img src={iconProfile} />
           </StProfile>
           <StName>
-            웹3조짱
+            <span>웹3조짱</span>
             <img src={iconArrow} />
           </StName>
           <StMoneyCash>
             <StMoneyCashItem>
-              쿠페이 머니
+              <span>쿠페이 머니</span>
               <p>1000원</p>
             </StMoneyCashItem>
             <StDivider />
             <StMoneyCashItem>
-              쿠팡캐시
+              <span>쿠팡캐시</span>
               <p>2000원</p>
             </StMoneyCashItem>
           </StMoneyCash>
-        </StUserInfoWrapper>
-        <StUserProductWrapper>
-          <StUserProductItem>
+        </StUserInfoContainer>
+        <StUserProductContainer>
+          <StUserProduct>
             <p>23</p>
-            구매후기
-          </StUserProductItem>
-          <StUserProductItem>
+            <span>구매후기</span>
+          </StUserProduct>
+          <StUserProduct>
             <p>25</p>
-            찜한상품
-          </StUserProductItem>
-          <StUserProductItem>
+            <span>찜한상품</span>
+          </StUserProduct>
+          <StUserProduct>
             <p>47</p>
-            최근본상품
-          </StUserProductItem>
-        </StUserProductWrapper>
+            <span>최근본상품</span>
+          </StUserProduct>
+        </StUserProductContainer>
       </StUserContainer>
-      <StMyMenuWrapper>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconOrderlist} />
-            주문목록
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconCancellist} />
-            취소·반품·교환목록
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconReview} />
-            리뷰 관리
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconDeliver} />
-            정기배송
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconCredit} />
-            결제수단·쿠페이
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconRocketfresh} />
-            로켓프레시 프레시백
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconGift} />
-            쿠팡캐시·기프트카드
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconCoupon} />
-            할인쿠폰
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-        <StMyMenuList>
-          <StMyMenuItem>
-            <img src={iconCustomercenter} />
-            고객센터
-          </StMyMenuItem>
-          <img src={iconArrow} />
-        </StMyMenuList>
-      </StMyMenuWrapper>
+      <StMyMenuContainer>
+        {menuItemList.map((menuItem, index) => (
+          <StMyMenuList key={index}>
+            <StMyMenuItem>
+              <img src={menuItem.img} />
+              <span>{menuItem.text}</span>
+            </StMyMenuItem>
+            <img src={iconArrow} />
+          </StMyMenuList>
+        ))}
+      </StMyMenuContainer>
     </StMyPageContainer>
   );
 }
@@ -133,7 +91,7 @@ const StUserContainer = styled.section`
   background-color: ${(props) => props.theme.color.white};
 `;
 
-const StUserInfoWrapper = styled.div`
+const StUserInfoContainer = styled.div`
   display: flex;
   align-items: center;
 
@@ -204,14 +162,14 @@ const StDivider = styled.div`
   border-right: 0.1rem solid ${(props) => props.theme.color.gray300};
 `;
 
-const StUserProductWrapper = styled.div`
+const StUserProductContainer = styled.div`
   display: flex;
   justify-content: space-around;
 
   height: 7.6rem;
 `;
 
-const StUserProductItem = styled.div`
+const StUserProduct = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -231,7 +189,7 @@ const StUserProductItem = styled.div`
   }
 `;
 
-const StMyMenuWrapper = styled.section`
+const StMyMenuContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
