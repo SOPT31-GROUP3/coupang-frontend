@@ -1,7 +1,7 @@
-import React from 'react';
+import MyPageView from 'components/mypage/MyPageView';
 
 function MyPage() {
-  return <div>마이페이지에요!</div>;
+  return <MyPageView />;
 }
 
 export default MyPage;
