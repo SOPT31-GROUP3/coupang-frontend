@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getBestItem } from 'libs/api';
 import styled from 'styled-components';
 // import BestItemData from 'libs/api';
+import Product from 'components/common/Product';
 
 function HomeBestItem() {
   // const [props, setProps] = useState();
@@ -21,6 +22,22 @@ function HomeBestItem() {
         <h1>BEST</h1>
         <h2>요즘 가장 잘 팔리는 상품이에요!</h2>
       </StBestItemTitle>
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
     </>
   );
 }
