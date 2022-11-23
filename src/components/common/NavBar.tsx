@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
-  icCategoryBar,
-  icHomeBar,
-  icMycoupangBar,
-  icSearchBar,
+  iconCategoryBar,
+  iconHomeBar,
+  iconMycoupangBar,
+  iconSearchBar,
 } from 'assets/icons';
 
 function NavBar() {
@@ -13,23 +13,23 @@ function NavBar() {
     <StNavWrapper>
       <StNavItem>
         <Link to={'/'}>
-          <StNavIcon src={icHomeBar} />
+          <StNavIcon src={iconHomeBar} />
           <p>쿠팡홈</p>
         </Link>
       </StNavItem>
       <StNavItem>
         <Link to={'/category'}>
-          <StNavIcon src={icCategoryBar} />
+          <StNavIcon src={iconCategoryBar} />
           <p>카테고리</p>
         </Link>
       </StNavItem>
       <StNavItem>
-        <StNavIcon src={icSearchBar} />
+        <StNavIcon src={iconSearchBar} />
         <p>검색</p>
       </StNavItem>
       <StNavItem>
         <Link to={'/mypage'}>
-          <StNavIcon src={icMycoupangBar} />
+          <StNavIcon src={iconMycoupangBar} />
           <p>마이쿠팡</p>
         </Link>
       </StNavItem>

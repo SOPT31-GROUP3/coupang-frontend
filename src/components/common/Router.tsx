@@ -7,13 +7,13 @@ import MyPage from 'pages/MyPage';
 
 function Router() {
   return (
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/category' element={<Category />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/mypage' element={<MyPage />} />
-        <Route path='/*' element={<p>Page Not Found</p>} />
-      </Routes>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/category' element={<Category />} />
+      <Route path='/cart' element={<Cart />} />
+      <Route path='/mypage' element={<MyPage />} />
+      <Route path='/*' element={<p>Page Not Found</p>} />
+    </Routes>
   );
 }
 
