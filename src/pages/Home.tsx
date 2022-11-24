@@ -1,7 +1,12 @@
 import React from 'react';
+import HomeTodaysHot from 'components/home/HomeTodaysHot';
 
 function Home() {
-  return <div>홈화면이에요!</div>;
+  return (
+    <div>
+      <HomeTodaysHot />
+    </div>
+  );
 }
 
 export default Home;
