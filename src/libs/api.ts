@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { CategoryItemList, PageNumber } from 'types/types';
+import {
+  CategoryItemList,
+  PageNumber,
+  TodayItemData,
+  UserData,
+} from 'types/types';
 
 const BASE_URL = 'http://3.37.241.186:3000/';
 
@@ -20,3 +25,17 @@ const getCategoryItemList = async ({ page, limit }: PageNumber) => {
 };
 
 export { getCategoryItemList };
+export { getTodayItemData, getUserData };
+const getTodayItemData = async () => {
+  const { data } = await client.get<TodayItemData>('/home/today');
+  if (data.status === 200) {
+    return data.data.todayProductList;
+  }
+};
+
+const getUserData = async (userId: string | undefined) => {
+  const { data } = await client.get<UserData>(`mycoupang/${userId}`);
+  if (data.status === 200) {
+    return data.getMyCoupangUser;
+  }
+};
