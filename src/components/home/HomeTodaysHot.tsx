@@ -2,20 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Product from 'components/common/Product';
 import { getTodayItemData } from 'libs/api';
-import { TodayItemData } from 'types/types';
+import { TodayItemDataprops } from 'types/types';
 
 function HomeTodaysHot() {
-  const [todayItems, setTodayItems] = useState([] as any);
-  const todaysHotItems = todayItems.slice(0, 3);
-  const {
-    productId,
-    productName,
-    productImage,
-    discount,
-    originalPrice,
-    discountedPrice,
-    reviewCount,
-  }: TodayItemData['data']['todayProductList'] = todayItems;
+  const [todayItems, setTodayItems] = useState<TodayItemDataprops[]>();
+  const todaysHotItems = todayItems?.slice(0, 3);
 
   const getTodayItems = async () => {
     const data = await getTodayItemData();
@@ -34,18 +25,28 @@ function HomeTodaysHot() {
         <h2>오늘 가장 잘 나간 상품들을 모아봤어요!</h2>
       </StTodayItemTitle>
 
-      {todaysHotItems.map((todaysHotItem: any): any => (
-        <Product
-          key={todaysHotItem.productId}
-          productId={todaysHotItem.productId}
-          productName={todaysHotItem.productName}
-          productImage={todaysHotItem.productImage}
-          discount={todaysHotItem.discount}
-          originalPrice={todaysHotItem.originalPrice}
-          discountedPrice={todaysHotItem.discountedPrice}
-          reviewCount={todaysHotItem.reviewCount}
-        />
-      ))}
+      {todaysHotItems?.map(
+        ({
+          productId,
+          productName,
+          productImage,
+          discount,
+          originalPrice,
+          discountedPrice,
+          reviewCount,
+        }) => (
+          <Product
+            key={productId}
+            productId={productId}
+            productName={productName}
+            productImage={productImage}
+            discount={discount}
+            originalPrice={originalPrice}
+            discountedPrice={discountedPrice}
+            reviewCount={reviewCount}
+          />
+        ),
+      )}
     </>
   );
 }

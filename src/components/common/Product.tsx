@@ -11,6 +11,10 @@ interface ProductProps {
   reviewCount: number;
 }
 
+const addComma = (data: string) => {
+  return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
 function Product(item: ProductProps) {
   return (
     <StProductContainer>
@@ -20,18 +24,10 @@ function Product(item: ProductProps) {
         <StProductName>{item.productName}</StProductName>
         <StDiscount>
           <span>{item.discount}% </span>
-          <span>
-            {item.originalPrice
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            원
-          </span>
+          <span>{addComma(String(item.originalPrice))}원</span>
         </StDiscount>
         <StPrice>
-          {item.discountedPrice
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-          <span>원</span>
+          <span>{addComma(String(item.discountedPrice))}원</span>
         </StPrice>
         <StDelivery>내일(일) 11/6 도착 보장</StDelivery>
         <StReview>
@@ -40,10 +36,7 @@ function Product(item: ProductProps) {
           <img src={iconStar} />
           <img src={iconStar} />
           <img src={iconStar} />
-          <span>
-            ({item.reviewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            )
-          </span>
+          <span>({item.reviewCount})</span>
         </StReview>
       </StProductInfo>
     </StProductContainer>
