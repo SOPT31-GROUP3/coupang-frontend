@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BestItemData } from 'types/bestProductList';
+import { BestItemData } from 'types/types';
 
 const BASE_URL = 'http://3.37.241.186:3000';
 

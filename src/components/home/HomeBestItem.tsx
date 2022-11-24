@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getBestItemData } from 'libs/api';
-import { ProductList } from 'types/bestProductList';
+import { ProductList } from 'types/types';
 import styled from 'styled-components';
 import Product from 'components/common/Product';
 
