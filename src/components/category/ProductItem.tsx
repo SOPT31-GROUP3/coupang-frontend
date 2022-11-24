@@ -22,17 +22,27 @@ function ProductItem() {
   return (
     <>
       <div>
-        {categoryItemList?.map((item) => (
-          <ProductWithProps
-            key={item.productId}
-            productName={item.productName}
-            productImage={item.productImage}
-            discount={item.discount}
-            originalPrice={item.originalPrice}
-            discountedPrice={item.discountedPrice}
-            reviewCount={item.reviewCount}
-          />
-        ))}
+        {categoryItemList?.map(
+          ({
+            productId,
+            productName,
+            productImage,
+            discount,
+            originalPrice,
+            discountedPrice,
+            reviewCount,
+          }) => (
+            <ProductWithProps
+              key={productId}
+              productName={productName}
+              productImage={productImage}
+              discount={discount}
+              originalPrice={originalPrice}
+              discountedPrice={discountedPrice}
+              reviewCount={reviewCount}
+            />
+          ),
+        )}
       </div>
       <Pagination>
         <PaginationButton

@@ -17,18 +17,15 @@ function Menu() {
   return (
     <>
       <MenuTopWrapper>
-        <StMenuTop src={imgMenuTopItem} alt='카테고리 메뉴' />
+        <img src={imgMenuTopItem} alt='카테고리 메뉴' />
       </MenuTopWrapper>
-
       <MenuCategoryWrapper>
-        {menuCategoryList.map((menuCategory) => {
-          return (
-            <MenuCategory key={menuCategory}>
-              <p>{menuCategory}</p>
-              <img src={iconArrowSmall} alt='이동하기' />
-            </MenuCategory>
-          );
-        })}
+        {menuCategoryList.map((menuCategory) => (
+          <MenuCategory key={menuCategory}>
+            <p>{menuCategory}</p>
+            <img src={iconArrowSmall} alt='이동하기' />
+          </MenuCategory>
+        ))}
       </MenuCategoryWrapper>
     </>
   );
@@ -43,8 +40,6 @@ const MenuTopWrapper = styled.section`
 
   height: 4.4rem;
 `;
-
-const StMenuTop = styled.img``;
 
 const MenuCategoryWrapper = styled.section`
   display: flex;
