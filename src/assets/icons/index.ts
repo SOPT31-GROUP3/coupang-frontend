@@ -3,6 +3,7 @@ export { default as iconArrowBig } from './icon_arrow_big.svg';
 export { default as iconArrowBigLast } from './icon_arrow_big_last.svg';
 export { default as iconArrowSmall } from './icon_arrow_small.svg';
 export { default as iconBasketBtn } from './icon_basket_btn.svg';
+export { default as iconButtonTop } from './icon_button_top.svg';
 export { default as iconCancellist } from './icon_cancellist.svg';
 export { default as iconCategoryBar } from './icon_category_bar.svg';
 export { default as iconCategoryBtn } from './icon_category_btn.svg';
