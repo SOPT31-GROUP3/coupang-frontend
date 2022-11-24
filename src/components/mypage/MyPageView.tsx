@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUserData } from 'libs/api';
+import { UserDataprops } from 'types/types';
 
 import {
   iconProfile,
@@ -19,10 +20,10 @@ import {
 
 function MyPageView() {
   const { userId } = useParams<{ userId: string }>();
-  const [userData, setUserData] = useState([] as any);
+  const [userData, setUserData] = useState<UserDataprops>();
 
   const getUserDatas = async () => {
-    const data = await getUserData(userId as string);
+    const data = await getUserData(userId);
     setUserData(data);
   };
 
@@ -50,14 +51,14 @@ function MyPageView() {
             <img src={iconProfile} alt='profileImage' />
           </StProfile>
           <StName>
-            <span>{userData.userName}</span>
+            <span>{userData?.userName}</span>
             <img src={iconArrow} alt='arrow' />
           </StName>
           <StMoneyCash>
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
               <p>
-                {String(userData.payMoney)
+                {String(userData?.payMoney)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 원
@@ -67,7 +68,7 @@ function MyPageView() {
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
               <p>
-                {String(userData.cash)
+                {String(userData?.cash)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 원
@@ -77,15 +78,15 @@ function MyPageView() {
         </StUserInfoContainer>
         <StUserProductContainer>
           <StUserProduct>
-            <p>{userData.reviewCount}</p>
+            <p>{userData?.reviewCount}</p>
             <span>구매후기</span>
           </StUserProduct>
           <StUserProduct>
-            <p>{userData.likeCount}</p>
+            <p>{userData?.likeCount}</p>
             <span>찜한상품</span>
           </StUserProduct>
           <StUserProduct>
-            <p>{userData.recentSeeCount}</p>
+            <p>{userData?.recentSeeCount}</p>
             <span>최근본상품</span>
           </StUserProduct>
         </StUserProductContainer>

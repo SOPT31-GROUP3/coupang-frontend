@@ -15,14 +15,16 @@ export interface TodayItemData {
 
 export interface UserData {
   status: number;
-  getMyCoupangUser: {
-    userId: number;
-    profileImage: string;
-    userName: string;
-    payMoney: number;
-    cash: number;
-    reviewCount: number;
-    likeCount: number;
-    recentSeeCount: number;
-  };
+  getMyCoupangUser: UserDataprops;
+}
+
+export interface UserDataprops {
+  userId: number;
+  profileImage: string;
+  userName: string;
+  payMoney: number;
+  cash: number;
+  reviewCount: number;
+  likeCount: number;
+  recentSeeCount: number;
 }
