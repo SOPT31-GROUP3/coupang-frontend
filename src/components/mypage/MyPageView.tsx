@@ -1,4 +1,9 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { getUserData } from 'libs/api';
+import { UserData } from 'types/types';
+
 import {
   iconProfile,
   iconArrow,
@@ -14,6 +19,19 @@ import {
 } from 'assets/icons';
 
 function MyPageView() {
+  const { userId } = useParams<{ userId: number }>();
+  const [userData, setUserData] = useState([] as any);
+
+  const getUserDatas = async () => {
+    const data = await getUserData(userId as number);
+    console.log(data);
+    setUserData(data);
+  };
+
+  useEffect(() => {
+    getUserDatas();
+  }, []);
+
   const menuItemList = [
     { img: iconOrderlist, text: '주문목록' },
     { img: iconCancellist, text: '취소·반품·교환목록' },
@@ -32,34 +50,35 @@ function MyPageView() {
         <StUserInfoContainer>
           <StProfile>
             <img src={iconProfile} />
+            {/* <img src={userData.profileImage} alt='profileImage' /> */}
           </StProfile>
           <StName>
-            <span>웹3조짱</span>
+            <span>{userData.userName}</span>
             <img src={iconArrow} />
           </StName>
           <StMoneyCash>
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
-              <p>1000원</p>
+              <p>{userData.payMoney}원</p>
             </StMoneyCashItem>
             <StDivider />
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
-              <p>2000원</p>
+              <p>{userData.cash}원</p>
             </StMoneyCashItem>
           </StMoneyCash>
         </StUserInfoContainer>
         <StUserProductContainer>
           <StUserProduct>
-            <p>23</p>
+            <p>{userData.reviewCount}</p>
             <span>구매후기</span>
           </StUserProduct>
           <StUserProduct>
-            <p>25</p>
+            <p>{userData.likeCount}</p>
             <span>찜한상품</span>
           </StUserProduct>
           <StUserProduct>
-            <p>47</p>
+            <p>{userData.recentSeeCount}</p>
             <span>최근본상품</span>
           </StUserProduct>
         </StUserProductContainer>
