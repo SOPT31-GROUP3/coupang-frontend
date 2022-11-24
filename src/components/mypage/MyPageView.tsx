@@ -47,22 +47,29 @@ function MyPageView() {
       <StUserContainer>
         <StUserInfoContainer>
           <StProfile>
-            <img src={iconProfile} />
-            {/* <img src={userData.profileImage} alt='profileImage' /> */}
+            <img src={iconProfile} alt='profileImage' />
           </StProfile>
           <StName>
             <span>{userData.userName}</span>
-            <img src={iconArrow} />
+            <img src={iconArrow} alt='arrow' />
           </StName>
           <StMoneyCash>
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
-              <p>{userData.payMoney}원</p>
+              <p>
+                {userData.payMoney
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                원
+              </p>
             </StMoneyCashItem>
             <StDivider />
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
-              <p>{userData.cash}원</p>
+              <p>
+                {userData.cash.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                원
+              </p>
             </StMoneyCashItem>
           </StMoneyCash>
         </StUserInfoContainer>
@@ -85,10 +92,10 @@ function MyPageView() {
         {menuItemList.map((menuItem, index) => (
           <StMyMenuList key={index}>
             <StMyMenuItem>
-              <img src={menuItem.img} />
+              <img src={menuItem.img} alt='menuItem' />
               <span>{menuItem.text}</span>
             </StMyMenuItem>
-            <img src={iconArrow} />
+            <img src={iconArrow} alt='arrow' />
           </StMyMenuList>
         ))}
       </StMyMenuContainer>
