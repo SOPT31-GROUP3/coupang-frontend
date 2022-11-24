@@ -17,7 +17,7 @@ function HomeServiceMenu() {
   return (
     <StServiceMenuContainer>
       {imageList.map((image: string, idx: number) => (
-        <StServiceMenu key={idx} src={image} />
+        <StServiceMenu key={idx} src={image} alt='배너 이미지' />
       ))}
     </StServiceMenuContainer>
   );
@@ -33,8 +33,6 @@ const StServiceMenuContainer = styled.section`
 
   width: 100%;
   height: 9.4rem;
-
-  border-bottom: 0.4rem solid ${(props) => props.theme.color.gray200};
 `;
 
 const StServiceMenu = styled.img`

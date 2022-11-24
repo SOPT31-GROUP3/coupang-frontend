@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import { iconStar } from 'assets/icons';
+import styled from 'styled-components';
 
-interface ProductProps {
-  productId: number;
+export interface ProductProps {
   productName: string;
   productImage: string;
   discount: number;
@@ -11,23 +10,28 @@ interface ProductProps {
   reviewCount: number;
 }
 
-const addComma = (data: string) => {
-  return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-};
-
-function Product(item: ProductProps) {
+function ProductWithProps(props: ProductProps) {
+  const {
+    productName,
+    productImage,
+    discount,
+    originalPrice,
+    discountedPrice,
+    reviewCount,
+  } = props;
   return (
     <StProductContainer>
-      <StProductImage src={item.productImage} alt='productImage' />
+      <StProductImage src={productImage} alt='productImage' />
       <StProductInfo>
         <StCoupon>즉시할인 쿠폰</StCoupon>
-        <StProductName>{item.productName}</StProductName>
+        <StProductName>{productName}</StProductName>
         <StDiscount>
-          <span>{item.discount}% </span>
-          <span>{addComma(String(item.originalPrice))}원</span>
+          <span>{discount}% </span>
+          <span>{originalPrice}원</span>
         </StDiscount>
         <StPrice>
-          <span>{addComma(String(item.discountedPrice))}원</span>
+          {discountedPrice}
+          <span>원</span>
         </StPrice>
         <StDelivery>내일(일) 11/6 도착 보장</StDelivery>
         <StReview>
@@ -36,23 +40,22 @@ function Product(item: ProductProps) {
           <img src={iconStar} />
           <img src={iconStar} />
           <img src={iconStar} />
-          <span>({item.reviewCount})</span>
+          <span>({reviewCount})</span>
         </StReview>
       </StProductInfo>
     </StProductContainer>
   );
 }
 
-export default Product;
+export default ProductWithProps;
 
 const StProductContainer = styled.div`
   display: flex;
   height: 17.6rem;
-  padding: 1.2rem 1.4rem 1.2rem 0;
+  padding: 1.2rem 1.4rem;
   gap: 1rem;
 
   line-height: 1.4rem;
-  border-bottom: 0.1rem solid ${(props) => props.theme.color.gray300};
 `;
 
 const StProductImage = styled.img`

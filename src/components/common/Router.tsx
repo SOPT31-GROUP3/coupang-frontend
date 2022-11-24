@@ -11,7 +11,7 @@ function Router() {
       <Route path='/' element={<Home />} />
       <Route path='/category' element={<Category />} />
       <Route path='/cart' element={<Cart />} />
-      <Route path='/mypage' element={<MyPage />} />
+      <Route path='/mypage/:userId' element={<MyPage />} />
       <Route path='/*' element={<p>Page Not Found</p>} />
     </Routes>
   );

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import HomeServiceMenu from 'components/home/HomeServiceMenu';
 import Carousel from 'components/home/Carousel';
+import HomeTodaysHot from 'components/home/HomeTodaysHot';
 import HomeBestItem from 'components/home/HomeBestItem';
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
     <StHomeContainer>
       <Carousel />
       <HomeServiceMenu />
+      <HomeTodaysHot />
       <HomeBestItem />
     </StHomeContainer>
   );
