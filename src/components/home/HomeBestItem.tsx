@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
-import { getBestItem } from 'libs/api';
+import { getBestItemData } from 'libs/api';
+import { ProductList } from 'types/bestProductList';
 import styled from 'styled-components';
-// import BestItemData from 'libs/api';
 import Product from 'components/common/Product';
 
 function HomeBestItem() {
-  // const [props, setProps] = useState();
+  const [bestItems, setBestItems] = useState<ProductList[]>();
 
   useEffect(() => {
     handleBestItem();
   }, []);
 
   const handleBestItem = async () => {
-    const bestItemData = await getBestItem();
-    console.log(bestItemData.data.bestProductList);
+    const bestItemData = await getBestItemData();
+    setBestItems(bestItemData);
   };
 
   return (
@@ -21,23 +21,32 @@ function HomeBestItem() {
       <StBestItemTitle>
         <h1>BEST</h1>
         <h2>요즘 가장 잘 팔리는 상품이에요!</h2>
+        {bestItems?.map(
+          (
+            {
+              productId,
+              productName,
+              productImage,
+              discount,
+              originalPrice,
+              discountedPrice,
+              reviewCount,
+            },
+            idx,
+          ) => (
+            <Product
+              key={idx}
+              productId={productId}
+              productName={productName}
+              productImage={productImage}
+              discount={discount}
+              originalPrice={originalPrice}
+              discountedPrice={discountedPrice}
+              reviewCount={reviewCount}
+            />
+          ),
+        )}
       </StBestItemTitle>
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
     </>
   );
 }
@@ -67,3 +76,6 @@ const StBestItemTitle = styled.article`
     letter-spacing: -0.02em;
   }
 `;
+function componentDidMount() {
+  throw new Error('Function not implemented.');
+}

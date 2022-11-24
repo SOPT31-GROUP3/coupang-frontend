@@ -12,21 +12,27 @@ interface ProductProps {
   reviewCount: number;
 }
 
-function Product() {
+function Product(item: ProductProps) {
   return (
     <StProductContainer>
-      <StProductImage alt='productImage' />
+      <StProductImage src={item.productImage} alt='productImage' />
       <StProductInfo>
         <StCoupon>즉시할인 쿠폰</StCoupon>
-        <StProductName>
-          일리윤 세라마이드 아토로션 무향, 528ml, 1개
-        </StProductName>
+        <StProductName>{item.productName}</StProductName>
         <StDiscount>
-          <span>53% </span>
-          <span>29,900원</span>
+          <span>{item.discount}% </span>
+          <span>
+            {item.originalPrice
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            원
+          </span>
         </StDiscount>
         <StPrice>
-          13,900<span>원</span>
+          {item.discountedPrice
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+          <span>원</span>
         </StPrice>
         <StDelivery>내일(일) 11/6 도착 보장</StDelivery>
         <StReview>
@@ -35,7 +41,10 @@ function Product() {
           <img src={iconStar} />
           <img src={iconStar} />
           <img src={iconStar} />
-          <span>(56,061)</span>
+          <span>
+            ({item.reviewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            )
+          </span>
         </StReview>
       </StProductInfo>
     </StProductContainer>
@@ -47,10 +56,12 @@ export default Product;
 const StProductContainer = styled.div`
   display: flex;
   height: 17.6rem;
-  padding: 1.2rem 1.4rem;
+  padding: 1.2rem 1.4rem 1.2rem 0;
   gap: 1rem;
 
   line-height: 1.4rem;
+
+  border-bottom: 0.1rem solid ${(props) => props.theme.color.gray200};
 `;
 
 const StProductImage = styled.img`
