@@ -16,6 +16,7 @@ const getTodayItemData = async () => {
     return data.data.todayProductList;
   }
 };
+
 const getUserData = async (userId: string | undefined) => {
   const { data } = await client.get<UserData>(`mycoupang/${userId}`);
   if (data.status === 200) {
