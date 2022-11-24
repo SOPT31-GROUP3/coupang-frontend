@@ -19,6 +19,7 @@ const getTodayItemData = async () => {
 const getUserData = async (userId: string) => {
   const { data } = await client.get<UserData>(`mycoupang/${userId}`);
   if (data.status === 200) {
+    console.log(data);
     return data.getMyCoupangUser;
   }
 };

@@ -9,6 +9,7 @@ import {
 } from 'assets/icons';
 
 function NavBar() {
+  const userId = 1;
   return (
     <StNavWrapper>
       <StNavItem>
@@ -28,7 +29,7 @@ function NavBar() {
         <p>검색</p>
       </StNavItem>
       <StNavItem>
-        <Link to={'/mypage'}>
+        <Link to={`/mypage/${userId}`}>
           <StNavIcon src={iconMycoupangBar} />
           <p>마이쿠팡</p>
         </Link>
