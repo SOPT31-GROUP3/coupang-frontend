@@ -15,6 +15,8 @@ export { default as iconHomeBar } from './icon_home_bar.svg';
 export { default as iconHomeCategory } from './icon_home_category.svg';
 export { default as iconMycoupangBar } from './icon_mycoupang_bar.svg';
 export { default as iconOrderlist } from './icon_orderlist.svg';
+export { default as iconPageArrowLeft } from './icon_page_arrow_left.svg';
+export { default as iconPageArrowRight } from './icon_page_arrow_right.svg';
 export { default as iconProfile } from './icon_profile.svg';
 export { default as iconReview } from './icon_review.svg';
 export { default as iconRocketfresh } from './icon_rocketfresh.svg';
