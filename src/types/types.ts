@@ -14,3 +14,19 @@ export interface TodayItemDataprops {
   discountedPrice: number;
   reviewCount: number;
 }
+
+export interface UserData {
+  status: number;
+  getMyCoupangUser: UserDataprops;
+}
+
+export interface UserDataprops {
+  userId: number;
+  profileImage: string;
+  userName: string;
+  payMoney: number;
+  cash: number;
+  reviewCount: number;
+  likeCount: number;
+  recentSeeCount: number;
+}

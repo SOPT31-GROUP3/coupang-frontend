@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TodayItemData } from 'types/types';
+import { TodayItemData, UserData } from 'types/types';
 
 const BASE_URL = 'http://3.37.241.186:3000/';
 
@@ -17,4 +17,11 @@ const getTodayItemData = async () => {
   }
 };
 
-export { getTodayItemData };
+const getUserData = async (userId: string | undefined) => {
+  const { data } = await client.get<UserData>(`mycoupang/${userId}`);
+  if (data.status === 200) {
+    return data.getMyCoupangUser;
+  }
+};
+
+export { getTodayItemData, getUserData };

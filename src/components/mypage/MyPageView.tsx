@@ -1,4 +1,9 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { getUserData } from 'libs/api';
+import { UserDataprops } from 'types/types';
+
 import {
   iconProfile,
   iconArrow,
@@ -14,6 +19,18 @@ import {
 } from 'assets/icons';
 
 function MyPageView() {
+  const { userId } = useParams<{ userId: string }>();
+  const [userData, setUserData] = useState<UserDataprops>();
+
+  const getUserDatas = async () => {
+    const data = await getUserData(userId);
+    setUserData(data);
+  };
+
+  useEffect(() => {
+    getUserDatas();
+  }, []);
+
   const menuItemList = [
     { img: iconOrderlist, text: '주문목록' },
     { img: iconCancellist, text: '취소·반품·교환목록' },
@@ -26,40 +43,44 @@ function MyPageView() {
     { img: iconCustomercenter, text: '고객센터' },
   ];
 
+  const addComma = (data: string) => {
+    return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   return (
     <StMyPageContainer>
       <StUserContainer>
         <StUserInfoContainer>
           <StProfile>
-            <img src={iconProfile} />
+            <img src={iconProfile} alt='profileImage' />
           </StProfile>
           <StName>
-            <span>웹3조짱</span>
-            <img src={iconArrow} />
+            <span>{userData?.userName}</span>
+            <img src={iconArrow} alt='arrow' />
           </StName>
           <StMoneyCash>
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
-              <p>1000원</p>
+              <p>{addComma(String(userData?.payMoney))}원</p>
             </StMoneyCashItem>
             <StDivider />
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
-              <p>2000원</p>
+              <p>{addComma(String(userData?.cash))}원</p>
             </StMoneyCashItem>
           </StMoneyCash>
         </StUserInfoContainer>
         <StUserProductContainer>
           <StUserProduct>
-            <p>23</p>
+            <p>{userData?.reviewCount}</p>
             <span>구매후기</span>
           </StUserProduct>
           <StUserProduct>
-            <p>25</p>
+            <p>{userData?.likeCount}</p>
             <span>찜한상품</span>
           </StUserProduct>
           <StUserProduct>
-            <p>47</p>
+            <p>{userData?.recentSeeCount}</p>
             <span>최근본상품</span>
           </StUserProduct>
         </StUserProductContainer>
@@ -68,10 +89,10 @@ function MyPageView() {
         {menuItemList.map((menuItem, index) => (
           <StMyMenuList key={index}>
             <StMyMenuItem>
-              <img src={menuItem.img} />
+              <img src={menuItem.img} alt='menuItem' />
               <span>{menuItem.text}</span>
             </StMyMenuItem>
-            <img src={iconArrow} />
+            <img src={iconArrow} alt='arrow' />
           </StMyMenuList>
         ))}
       </StMyMenuContainer>
