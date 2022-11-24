@@ -33,7 +33,6 @@ function Carousel() {
           <img key={idx} src={img} alt='배너이미지' />
         ))}
       </StSlider>
-      <StSliderCount>1 / 3</StSliderCount>
     </>
   );
 }
