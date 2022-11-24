@@ -17,7 +17,7 @@ function HomeServiceMenu() {
   return (
     <StServiceMenuContainer>
       {imageList.map((image: string, idx: number) => (
-        <StServiceMenu key={idx} src={image} />
+        <StServiceMenu key={idx} src={image} alt='배너 이미지' />
       ))}
     </StServiceMenuContainer>
   );
