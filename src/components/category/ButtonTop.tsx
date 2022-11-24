@@ -16,10 +16,12 @@ function ButtonTop() {
 export default ButtonTop;
 
 const ButtonTopImage = styled.img`
-  width: 4rem;
-  height: 4rem;
-  position: fixed;
   position: absolute;
   right: 1.6rem;
   bottom: 8.1rem;
+
+  width: 4rem;
+  height: 4rem;
+
+  cursor: pointer;
 `;

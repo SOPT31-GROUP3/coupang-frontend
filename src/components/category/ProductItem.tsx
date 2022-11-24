@@ -9,6 +9,7 @@ function ProductItem() {
   const [categoryItemList, setCategoryItemList] = useState<CategoryItem[]>();
   const [currentPage, setCurrentPage] = useState(1);
   const pageNumber = [1, 2, 3, 4, 5];
+
   useEffect(() => {
     getCategoryItemData();
   }, [currentPage]);
@@ -54,7 +55,7 @@ function ProductItem() {
         ))}
         <PaginationButton
           onClick={() => {
-            if (currentPage === 3) return;
+            if (currentPage === 5) return;
             setCurrentPage(currentPage + 1);
           }}
           isActive={false}
@@ -69,23 +70,26 @@ function ProductItem() {
 export default ProductItem;
 
 const Pagination = styled.div`
-  height: 6.6rem;
-  width: 37.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
-  background-color: ${(props) => props.theme.color.gray100};
+
+  height: 6.6rem;
+  width: 37.5rem;
+
   border-bottom: 0.1rem solid #dedede;
+  background-color: ${(props) => props.theme.color.gray100};
 `;
 
 const PaginationButton = styled.button<{ isActive: boolean }>`
   width: 3rem;
   height: 3rem;
-  border-radius: 0.2rem;
-  border: 0.1rem solid ${(props) => props.theme.color.gray300};
+
   background-color: ${({ isActive }) => (isActive ? '#356BFF' : 'white')};
   color: ${({ isActive }) => (isActive ? 'white' : 'black')};
+  border-radius: 0.2rem;
+  border: 0.1rem solid ${(props) => props.theme.color.gray300};
   font-weight: ${(props) => props.theme.fontWeight.semiBold};
   font-size: 1.4rem;
 `;
