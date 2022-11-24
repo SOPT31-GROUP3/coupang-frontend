@@ -57,7 +57,7 @@ function MyPageView() {
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
               <p>
-                {userData.payMoney
+                {String(userData.payMoney)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 원
@@ -67,7 +67,9 @@ function MyPageView() {
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
               <p>
-                {userData.cash.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                {String(userData.cash)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 원
               </p>
             </StMoneyCashItem>
