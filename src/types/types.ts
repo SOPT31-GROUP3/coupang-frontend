@@ -15,7 +15,7 @@ export interface TodayItemData {
 
 export interface UserData {
   status: number;
-  data: {
+  getMyCoupangUser: {
     userId: number;
     profileImage: string;
     userName: string;

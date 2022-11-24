@@ -19,12 +19,11 @@ import {
 } from 'assets/icons';
 
 function MyPageView() {
-  const { userId } = useParams<{ userId: number }>();
+  const { userId } = useParams<{ userId: string }>();
   const [userData, setUserData] = useState([] as any);
 
   const getUserDatas = async () => {
-    const data = await getUserData(userId as number);
-    console.log(data);
+    const data = await getUserData(userId as string);
     setUserData(data);
   };
 
