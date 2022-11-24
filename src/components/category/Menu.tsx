@@ -37,10 +37,11 @@ function Menu() {
 export default Menu;
 
 const MenuTopWrapper = styled.section`
-  height: 4.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: 4.4rem;
 `;
 
 const StMenuTop = styled.img``;
@@ -48,6 +49,7 @@ const StMenuTop = styled.img``;
 const MenuCategoryWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
+
   border-left: 0.1rem solid ${(props) => props.theme.color.gray300};
   border-top: 0.1rem solid ${(props) => props.theme.color.gray300};
 `;
@@ -55,22 +57,25 @@ const MenuCategoryWrapper = styled.section`
 const MenuCategory = styled.div`
   display: flex;
   position: relative;
+
   width: 12.46rem;
   height: 3.8rem;
-  font-size: 1.2rem;
-  font-weight: ${(props) => props.theme.fontWeight.medium};
+
   border-right: 0.1rem solid ${(props) => props.theme.color.gray300};
   border-bottom: 0.1rem solid ${(props) => props.theme.color.gray300};
+  font-size: 1.2rem;
+  font-weight: ${(props) => props.theme.fontWeight.medium};
 
   & > p {
     margin: 1.2rem 0 0 0.8rem;
   }
 
   & > img {
-    width: 0.5rem;
-    height: 0.95rem;
     position: absolute;
     top: 1.425rem;
     right: 0.8rem;
+
+    width: 0.5rem;
+    height: 0.95rem;
   }
 `;
