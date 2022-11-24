@@ -43,6 +43,10 @@ function MyPageView() {
     { img: iconCustomercenter, text: '고객센터' },
   ];
 
+  const addComma = (data: string) => {
+    return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   return (
     <StMyPageContainer>
       <StUserContainer>
@@ -57,22 +61,12 @@ function MyPageView() {
           <StMoneyCash>
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
-              <p>
-                {String(userData?.payMoney)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                원
-              </p>
+              <p>{addComma(String(userData?.payMoney))}원</p>
             </StMoneyCashItem>
             <StDivider />
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
-              <p>
-                {String(userData?.cash)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                원
-              </p>
+              <p>{addComma(String(userData?.cash))}원</p>
             </StMoneyCashItem>
           </StMoneyCash>
         </StUserInfoContainer>
