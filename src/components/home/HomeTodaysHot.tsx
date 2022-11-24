@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import Product from 'components/common/Product';
 import { getTodayItemData } from 'libs/api';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import { TodayItemDataprops } from 'types/types';
 
 function HomeTodaysHot() {
@@ -24,7 +24,6 @@ function HomeTodaysHot() {
         <h1>TODAYS HOT</h1>
         <h2>오늘 가장 잘 나간 상품들을 모아봤어요!</h2>
       </StTodayItemTitle>
-
       {todaysHotItems?.map(
         ({
           productId,
@@ -64,7 +63,9 @@ const StTodayItemTitle = styled.article`
   align-items: flex-start;
   gap: 0.4rem;
 
-  margin: 3.2rem 1.4rem 0.4rem 1.4rem;
+  width: 37.5rem;
+
+  padding: 3.2rem 1.4rem 0.4rem 1.4rem;
   color: ${(props) => props.theme.color.black};
 
   & > h1 {

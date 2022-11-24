@@ -1,6 +1,6 @@
-import { Link, useLocation } from 'react-router-dom';
 import { iconBasketBtn, iconCategoryBtn, iconSearchBtn } from 'assets/icons';
 import { imgLogo } from 'assets/images';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 function Header() {
@@ -93,6 +93,8 @@ const StHeaderWrapper = styled.header`
 
   background-color: ${(props) => props.theme.color.white};
   border-bottom: 0.1rem solid #e4e6e3;
+
+  z-index: 10;
 `;
 
 const StLeftSection = styled.div`
