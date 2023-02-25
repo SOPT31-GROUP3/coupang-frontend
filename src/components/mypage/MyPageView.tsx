@@ -21,6 +21,8 @@ import {
 function MyPageView() {
   const { userId } = useParams<{ userId: string }>();
   const [userData, setUserData] = useState<UserDataprops>();
+  const { userName, payMoney, reviewCount, cash, likeCount, recentSeeCount } =
+    (userData as UserDataprops) || {};
 
   const getUserDatas = async () => {
     const data = await getUserData(userId);
@@ -55,28 +57,28 @@ function MyPageView() {
             <img src={iconProfile} alt='profileImage' />
           </StProfile>
           <StName>
-            <span>{userData?.userName}</span>
+            <span>{userName}</span>
             <img src={iconArrow} alt='arrow' />
           </StName>
           <StMoneyCash>
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
-              <p>{addComma(String(userData?.payMoney))}원</p>
+              <p>{addComma(String(payMoney))}원</p>
             </StMoneyCashItem>
             <StDivider />
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
-              <p>{addComma(String(userData?.cash))}원</p>
+              <p>{addComma(String(cash))}원</p>
             </StMoneyCashItem>
           </StMoneyCash>
         </StUserInfoContainer>
         <StUserProductContainer>
           <StUserProduct>
-            <p>{userData?.reviewCount}</p>
+            <p>{reviewCount}</p>
             <span>구매후기</span>
           </StUserProduct>
           <StUserProduct>
-            <p>{userData?.likeCount}</p>
+            <p>{likeCount}</p>
             <span>찜한상품</span>
           </StUserProduct>
           <StUserProduct>
