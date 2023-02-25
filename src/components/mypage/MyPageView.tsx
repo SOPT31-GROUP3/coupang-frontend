@@ -45,7 +45,7 @@ function MyPageView() {
     { img: iconCustomercenter, text: '고객센터' },
   ];
 
-  const addComma = (data: string) => {
+  const addComma = (data: number) => {
     return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
@@ -63,12 +63,12 @@ function MyPageView() {
           <StMoneyCash>
             <StMoneyCashItem>
               <span>쿠페이 머니</span>
-              <p>{addComma(String(payMoney))}원</p>
+              <p>{addComma(payMoney)}원</p>
             </StMoneyCashItem>
             <StDivider />
             <StMoneyCashItem>
               <span>쿠팡캐시</span>
-              <p>{addComma(String(cash))}원</p>
+              <p>{addComma(cash)}원</p>
             </StMoneyCashItem>
           </StMoneyCash>
         </StUserInfoContainer>
