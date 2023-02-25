@@ -31,11 +31,11 @@ function Product(item: ProductProps) {
         </StPrice>
         <StDelivery>내일(일) 11/6 도착 보장</StDelivery>
         <StReview>
-          <img src={iconStar} />
-          <img src={iconStar} />
-          <img src={iconStar} />
-          <img src={iconStar} />
-          <img src={iconStar} />
+          <img src={iconStar} alt='star' />
+          <img src={iconStar} alt='star' />
+          <img src={iconStar} alt='star' />
+          <img src={iconStar} alt='star' />
+          <img src={iconStar} alt='star' />
           <span>({item.reviewCount})</span>
         </StReview>
       </StProductInfo>
